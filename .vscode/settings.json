@@ -1,0 +1,13 @@
+{
+    "java.project.sourcePaths": [
+        "recursividade",
+        "arrays",
+        "PilhaFila",
+        "Pilha",
+        "PilhaeFila/c2"
+    ],
+    "java.project.outputPath": "bin",
+    "java.project.referencedLibraries": [
+        "lib/**/*.jar"
+    ]
+}
