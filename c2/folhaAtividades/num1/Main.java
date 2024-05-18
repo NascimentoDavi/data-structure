@@ -1,4 +1,4 @@
-package num1;
+package folhaAtividades.num1;
 
 import java.util.Scanner;
 import entidades.*;

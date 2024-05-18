@@ -1,4 +1,4 @@
-package num2;
+package folhaAtividades.num2;
 
 public class NoContato {
     private Contato contato;
