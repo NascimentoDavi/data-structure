@@ -1,7 +1,7 @@
 package num2;
 
 public class FilaContato {
-    private NoContato tail, head;
+    private NoContato head, tail;
     private int quant;
 
     public FilaContato(){
@@ -39,7 +39,7 @@ public class FilaContato {
     public NoContato dequeue(){
         NoContato aux = this.head;
         if(!isEmpty()){
-            this.head = head.getProx();
+            this.head = this.head.getProx();
             this.quant--;
         }
         return aux;
@@ -47,10 +47,10 @@ public class FilaContato {
 
     @Override
     public String toString(){
-        String list = "";
+        String list = " ";
         NoContato aux = this.head;
-        for(int i=0;i<this.quant;i++){
-            list += aux.getContato().toString();
+        for(int i = 0; i < this.quant; i++){
+            list += aux.getContato().toString()+"\n";
             aux = aux.getProx();
         }
         return list;

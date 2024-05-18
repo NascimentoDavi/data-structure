@@ -1,3 +1,5 @@
+package num1;
+
 import java.util.Scanner;
 import entidades.*;
 

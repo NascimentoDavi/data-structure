@@ -22,10 +22,11 @@ public class Main {
                     break;
 
                 case 2:
-                    if(atendimento() == null){
-                        System.out.println("Lista de atendimentos vazia!");
-                    } else {
+                    try {
                         System.out.println(atendimento());
+                    } catch (Exception e){
+                        System.out.println("Fila de atendimentos está vazia!");
+                        continue;
                     }
                     break;
                 
@@ -56,7 +57,7 @@ public class Main {
         System.out.println("Contato adicionado com sucesso!");
     }
 
-    public static NoContato atendimento(){
-        return filaContato.dequeue();
+    public static Contato atendimento(){
+        return filaContato.dequeue().getContato();
     }
 }

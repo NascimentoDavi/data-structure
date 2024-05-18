@@ -1,3 +1,5 @@
+package num1;
+
 import entidades.*;
 
 public class FilaChar {

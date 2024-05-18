@@ -1,3 +1,5 @@
+package entidades;
+
 public class NodeChar {
     private Item item;
     private NodeChar prox;

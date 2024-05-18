@@ -1,3 +1,7 @@
+package num1;
+
+import entidades.*;
+
 public class PilhaChar {
     private NodeChar top;
     private int quant;
