@@ -1,3 +1,5 @@
+import entidades.*;
+
 public class FilaChar {
     private NodeChar tail, head;
     private int quant;

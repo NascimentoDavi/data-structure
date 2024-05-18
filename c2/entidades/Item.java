@@ -1,6 +1,10 @@
 public class Item {
     private char character;
 
+    public Item(){
+        this.character = ' ';
+    }
+
     public Item(char character){
         this.character = character;
     }

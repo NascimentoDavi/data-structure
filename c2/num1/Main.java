@@ -1,16 +1,16 @@
 import java.util.Scanner;
+import entidades.*;
 
 public class Main {
     public static void main(String[] args) {
 
         Scanner scan = new Scanner(System.in);
         PilhaChar pilha = new PilhaChar();
-        FilaChar fila = new FilaChar();
 
         String input;
         do {
             System.out.print("Digite uma sequencia de caractéres e verificaremos se é palindromo ou nao\n: ");
-            input = scan.nextLine().replaceAll("\\s+", ""); // remove os espacos em branco
+            input = scan.nextLine().replaceAll("\\s+", "").toLowerCase(); // remove os espacos em branco
 
             if(!verificarString(input)){
                 break;
