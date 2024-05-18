@@ -1,32 +1,34 @@
-public class Fila {
-    private NoItem head, tail;
+package folhaAtividades.num1v2;
+import entidades.Item;
+import entidades.NodeChar;
+
+public class FilaChar {
+    private NodeChar head, tail;
     private int quant;
 
-    public Fila(){
+    public FilaChar(){
         this.head = null;
         this.tail = null;
         this.quant = 0;
     }
 
-    public boolean isEmpty(){
-        if(this.quant==0){
-            return true;
-        }
-        return false;
+    public NodeChar getHead(){
+        return this.head;
     }
 
     public int getQuant(){
         return this.quant;
     }
 
-    public NoItem getHead(){
-        return this.head;
+    public boolean isEmpty(){
+        if(this.quant == 0){
+            return true;
+        }
+        return false;
     }
 
-    // enqueue: enfileirar, colocar no final
-    // insercoes sao feitas no final da fila
     public void enqueue(Item item){
-        NoItem newNode = new NoItem(item);
+        NodeChar newNode = new NodeChar(item);
         if(isEmpty()){
             this.head = newNode;
         } else {
@@ -36,9 +38,8 @@ public class Fila {
         this.quant++;
     }
 
-    // enquanto remocoes sao feitas no inicio da mesma
-    public NoItem dequeue(){
-        NoItem aux = this.head; // segmento de pilha
+    public NodeChar dequeue(){
+        NodeChar aux = this.head;
         if(!isEmpty()){
             this.head = this.head.getProx();
             this.quant--;
@@ -48,9 +49,9 @@ public class Fila {
 
     @Override
     public String toString(){
-        String list = " ";
-        NoItem aux = this.head;
-        for(int i=0;i<this.quant;i++){
+        String list = "";
+        NodeChar aux = this.head;
+        for(int i = 0; i < this.quant;i++){
             list += aux.getItem().toString()+"\n";
             aux = aux.getProx();
         }

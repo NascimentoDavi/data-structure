@@ -31,6 +31,7 @@ public class Main {
         System.out.println("Devem ser digitas apenas letras");
     }
 
+
     public static void addCharPilha(String str, PilhaChar pilha){
         for(int i=0;i<str.length();i++){
             Item item = new Item(str.charAt(i));

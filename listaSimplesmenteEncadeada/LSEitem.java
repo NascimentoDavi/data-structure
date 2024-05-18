@@ -77,5 +77,16 @@ public class LSEitem {
         return null;
     }
 
-    // Finish...
+    public void insereInicio(Item item){
+        NoItem novoNo = new NoItem(item);
+        novoNo.setProx(this.first);
+        this.first = novoNo;
+        if(isEmpty()){
+            this.last = novoNo;
+        }
+        this.quant++;
+    }
+
+    // insereFinal
+    // insere
 }
