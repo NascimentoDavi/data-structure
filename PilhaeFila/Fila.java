@@ -30,7 +30,7 @@ public class Fila {
         if(isEmpty()){
             this.head = newNode;
         } else {
-            this.tail.setProx(newNode);
+            this.head = this.head.getProx();
         }
         this.tail = newNode;
         this.quant++;

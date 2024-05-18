@@ -12,7 +12,7 @@ public class Contato {
         this.numero = "";
     }
 
-    public Contato(String name, String cpf, String numero){
+    public Contato(String nome, String cpf, String numero){
         this.nome = nome;
         this.cpf = cpf;
         this.numero = numero;

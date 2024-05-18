@@ -39,7 +39,7 @@ public class FilaContato {
     public NoContato dequeue(){
         NoContato aux = this.head;
         if(!isEmpty()){
-            this.tail = this.tail.getProx();
+            this.head = head.getProx();
             this.quant--;
         }
         return aux;
