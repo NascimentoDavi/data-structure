@@ -14,7 +14,12 @@ public class Main {
 
             System.out.print("\nbem vindo ao call center!\n1 - Inserir Contato;\n2 - Atendimento;\n3 - Sair\n: ");
 
-            opt = Integer.parseInt(scan.nextLine());
+            try {
+                opt = Integer.parseInt(scan.nextLine());
+            } catch (Exception e){
+                System.out.println("Digite apenas os numeros das opções correspondentes");
+                continue;
+            }
 
             switch (opt) {
                 case 1:
