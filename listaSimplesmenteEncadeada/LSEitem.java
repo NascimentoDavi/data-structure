@@ -88,5 +88,19 @@ public class LSEitem {
     }
 
     // insereFinal
+    public void insereFinal(Item item){
+        NoItem novoNo = new novoNo(item);
+        if(isEmpty()){
+            this.first=novoNo;
+        } else {
+            this.last.setProx(novoNo);
+        }
+        this.last = novoNo;
+        this.quant++;
+    }
+
     // insere
+    public void insere(Item item, int pos){
+        
+    }
 }
