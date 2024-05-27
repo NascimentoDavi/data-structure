@@ -95,6 +95,11 @@ public class Abb {
     }
 
     private NoAbb biggerLeft(NoAbb no, NoAbb bigger){
-        
+        if(bigger == null){
+            bigger.setRight(biggerLeft(no, no.getRight()));
+        } else {
+            no.setItem(bigger.getItem());
+            return bigger.getLeft();
+        }
     }
 }
