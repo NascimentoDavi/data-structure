@@ -1,5 +1,9 @@
 package arvore;
+
+import entidades.Item;
 import entidades.NoAbb;
+import Lista.LCItem;
+
 public class Abb {
     private NoAbb raiz;
     private int quant;
@@ -24,41 +28,42 @@ public class Abb {
         return quant;
     }
     public boolean eVazia (){
-        if (this.quant==0)
+        if (this.quant == 0){
             return true;
+        }
         return false;
     }
     
-    public NoAbb pesquisa (int num){
-        return pesquisa (num, this.raiz);
+    public NoAbb pesquisa(int cod){
+        return pesquisa(int cod, this.raiz);
     }
-    
-    private NoAbb pesquisa (int num, NoAbb no){
-        if (no == null){
+
+    private NoAbb pesquisa(int cod, NoAbb no){
+        if(no == null){
             return null;
         }
-        if (num < no.getItem().getCodigo()){
-            return pesquisa (num, no.getEsq());
-        } else if (num > no.getItem().getCodigo()){
-            return pesquisa (num, no.getDir());
+        if(cod < no.getItem().getCodigo()){
+            return pesquisa(cod, no.getLeft());
+        } else if(cod > no.getItem().getCodigo()){
+            return pesquisa(cod, no.getRight());
         } else {
             return no;
         }
     }
 
     public boolean insere(Item item){
-        NoAbb node = pesquisa(item.getCodigo());
-        // raiz vazia
-        if(node == null) {
+        NoAbb aux = pesquisa(item.getCodigo());
+        // se nao achar...
+        if(aux == null){
             insere(item, this.raiz);
             return true;
         }
-        // o elemento já esta la, nao insere novamente
+        // caso ja esteja na arvore
         return false;
     }
 
     private NoAbb insere(Item item, NoAbb node){
-        // raiz vazia
+        // raiz vazia...
         if(node == null) {
             NoAbb newNode = new NoAbb(item);
             this.quant++;

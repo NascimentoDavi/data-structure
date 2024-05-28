@@ -1,5 +1,4 @@
 package entidades;
-
 public class NoAbb {
     private Item item;
     private NoAbb right;
@@ -15,6 +14,10 @@ public class NoAbb {
         return this.item;
     }
 
+    public void setItem(Item item){
+        this.item = item;
+    }
+
     public NoAbb getLeft(){
         return this.left;
     }
@@ -23,16 +26,16 @@ public class NoAbb {
         return this.right;
     }
 
-    public void setLeft(Item item){
-        this.left = item;
+    public void setLeft(NoAbb nodeLeft){
+        this.left = nodeLeft;
     }
 
-    public void setRight(Item item){
-        this.right = item;
+    public void setRight(NoAbb nodeRight){
+        this.right = nodeRight;
     }
 
-    public void setItem(Item item){
-        this.item = item;
+    @Override
+    public String toString(){
+        return "NoAbb{" + "item=" + item + "}";
     }
-
 }
