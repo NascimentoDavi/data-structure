@@ -35,46 +35,57 @@ public class Abb {
     }
     
     public NoAbb pesquisa(int cod){
-        return pesquisa(int cod, this.raiz);
+        return pesquisa(cod, this.raiz);
     }
 
-    private NoAbb pesquisa(int cod, NoAbb no){
+    public NoAbb pesquisa(int cod, NoAbb no){
         if(no == null){
             return null;
         }
-        if(cod < no.getItem().getCodigo()){
+        if(cod < no.getItem.getCodigo()){
             return pesquisa(cod, no.getLeft());
-        } else if(cod > no.getItem().getCodigo()){
+        } else if (cod > no.getItem().geCodigo()){
             return pesquisa(cod, no.getRight());
         } else {
             return no;
         }
+
+        // se achar retorna o proprio no;
+        // se raiz nula, retorna null;
+        // se nao achar, retorna null;
+
     }
 
     public boolean insere(Item item){
         NoAbb aux = pesquisa(item.getCodigo());
-        // se nao achar...
+
+        // se for arvore vazia ou nao achar o elemento especificado pelo codigo
+
         if(aux == null){
-            insere(item, this.raiz);
+            this.raiz = insere(item, this.raiz);
             return true;
         }
-        // caso ja esteja na arvore
+
+        // caso ja esteja na arvore, nao insere novamente
+
         return false;
     }
 
-    private NoAbb insere(Item item, NoAbb node){
-        // raiz vazia...
-        if(node == null) {
-            NoAbb newNode = new NoAbb(item);
+    private NoAbb insere(Item item, NoAbb no){
+        if(no == null){
+            NoAbb novoNo = new NoAbb(item);
             this.quant++;
-            return node;
+            return novoNo;
         }
-        if(item.getCodigo() < node.getItem().getCodigo()){
-            node.setLeft(insere(item, node.getLeft()));
+        if(item.getCodigo() < no.getItem().getLeft()){
+            no.setLeft(insere(item, no.getLeft()));
         } else {
-            node.setRight(insere(item, node.getRight()));
+            no.setRight(item, no.getRight());
         }
-        return node;
+
+        // se achar o elemento, nao insere novametne
+
+        return no;
     }
 
     public NoAbb remove(int num){
