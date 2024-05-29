@@ -1,33 +1,27 @@
 package entidades;
 
 public class Item {
-    private int code;
-    private String name;
+
+    private int cod;
 
     public Item(){
-        this.code = 0;
-        this.name = "";
+        this.cod = 0;
     }
 
-    public Item(int code, String name){
-        this.code = code;
-        this.name = name;
+    public Item(int cod){
+        this.cod = cod;
     }
 
-    public int getCode(){
-        return this.code;
-    }
-    public String getName(){
-        return this.name;
-    }
-    public void setCode(int code){
-        this.code = code;
-    }
-    public void setName(String name){
-        this.name = name;
+    public int getCod(){
+        return this.cod;
     }
 
+    public void setCod(int cod){
+        this.cod = cod;
+    }
+
+    @Override
     public String toString(){
-        return "Code="+this.code+", Name="+this.name;
+        return "Codido: " + this.cod + "\n";
     }
 }

@@ -88,26 +88,29 @@ public class Abb {
         return no;
     }
 
-    public NoAbb remove(int num){
-        remove(num, this.raiz);
+    public NoAbb remove(int cod){
+        return remove(cod, this.raiz);
     }
-
-    private NoAbb remove(int num, NoAbb no){
+    
+    private NoAbb remove(int cod, NoAbb no){
         if(no == null){
             return null;
-        } else if (num < no.getItem().getCodigo()){
-            no.setLeft(remove(no.getEsq()));
-        } else if(num > no.getItem().getCodigo()){
-            no.setRigth(remove(no.getRight()));
-        } else if (no.getRigth()==null) {
+        }
+        if(cod < no.getItem().getCodigo()){
+            no.setLeft(remove(cod, no.getLeft()));
+        } else if (cod > no.getItem().getCodigo()){
+            no.setRight(remove(cod, no.getRight()));
+        } else if (no.getRight() == null){
             this.quant--;
             return no.getLeft();
-        } else if (no.getLeft()==null) {
+        } else if (no.getLeft() == null){
             this.quant--;
             return no.getRight();
         } else {
             no.setLeft(biggerLeft(no, no.getLeft()));
+            this.quant--;
         }
+        return no;
     }
 
     private NoAbb biggerLeft(NoAbb no, NoAbb bigger){
