@@ -5,120 +5,51 @@ import entidades.NoAbb;
 import Lista.LCItem;
 
 public class Abb {
-    private NoAbb raiz;
+    private NoAbb root;
     private int quant;
     
     /*
         Essa classe, além dos gets (observe que não faremos os sets)
-        os métodos: eVAzia, pesquisar, inserir, remover 
+        os métodos: eVAzia, searchr, inserir, remover 
         e outros métodos para visitar cada nó da árvore, 
         que veremos mais à frente. 
     */
 
-    public Abb() {
-        this.raiz = null;
+    public Abb(){
+        this.root = null;
         this.quant = 0;
     }
 
-    public NoAbb getRaiz() {
-        return raiz;
+    public NoAbb getroot(){
+        return this.root;
     }
 
-    public int getQuant() {
-        return quant;
+    public int getQuant(){
+        return this.quant;
     }
-    public boolean eVazia (){
-        if (this.quant == 0){
+
+    public boolean isEmpty(){
+        if(this.quant == 0){
             return true;
         }
         return false;
     }
-    
-    public NoAbb pesquisa(int cod){
-        return pesquisa(cod, this.raiz);
+
+    public NoAbb search(int num){
+        return search(num, this.root);
     }
 
-    public NoAbb pesquisa(int cod, NoAbb no){
-        if(no == null){
+    public NoAbb search (int num, NoAbb node){
+        if(num == 0){
             return null;
         }
-        if(cod < no.getItem.getCodigo()){
-            return pesquisa(cod, no.getLeft());
-        } else if (cod > no.getItem().geCodigo()){
-            return pesquisa(cod, no.getRight());
+        if(num < node.getItem().getCod()) {
+            return pesquisa(num, node.getLeft());
+        } else if (num > node.getItem().getCode()){
+            return pesquisa(num, node.getRight());
         } else {
-            return no;
-        }
-
-        // se achar retorna o proprio no;
-        // se raiz nula, retorna null;
-        // se nao achar, retorna null;
-
-    }
-
-    public boolean insere(Item item){
-        NoAbb aux = pesquisa(item.getCodigo());
-
-        // se for arvore vazia ou nao achar o elemento especificado pelo codigo
-
-        if(aux == null){
-            this.raiz = insere(item, this.raiz);
-            return true;
-        }
-
-        // caso ja esteja na arvore, nao insere novamente
-
-        return false;
-    }
-
-    private NoAbb insere(Item item, NoAbb no){
-        if(no == null){
-            NoAbb novoNo = new NoAbb(item);
-            this.quant++;
-            return novoNo;
-        }
-        if(item.getCodigo() < no.getItem().getLeft()){
-            no.setLeft(insere(item, no.getLeft()));
-        } else {
-            no.setRight(item, no.getRight());
-        }
-
-        // se achar o elemento, nao insere novametne
-
-        return no;
-    }
-
-    public NoAbb remove(int cod){
-        return remove(cod, this.raiz);
-    }
-    
-    private NoAbb remove(int cod, NoAbb no){
-        if(no == null){
-            return null;
-        }
-        if(cod < no.getItem().getCodigo()){
-            no.setLeft(remove(cod, no.getLeft()));
-        } else if (cod > no.getItem().getCodigo()){
-            no.setRight(remove(cod, no.getRight()));
-        } else if (no.getRight() == null){
-            this.quant--;
-            return no.getLeft();
-        } else if (no.getLeft() == null){
-            this.quant--;
-            return no.getRight();
-        } else {
-            no.setLeft(biggerLeft(no, no.getLeft()));
-            this.quant--;
-        }
-        return no;
-    }
-
-    private NoAbb biggerLeft(NoAbb no, NoAbb bigger){
-        if(bigger == null){
-            bigger.setRight(biggerLeft(no, no.getRight()));
-        } else {
-            no.setItem(bigger.getItem());
-            return bigger.getLeft();
+            // if finds, return it
+            return node;
         }
     }
 }
