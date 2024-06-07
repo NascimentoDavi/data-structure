@@ -115,23 +115,32 @@ public class Abb {
         }
 
         public booleam remover(int cod){
-            // the searched element does not exist
-            if(this.search(cod) == null){
+            if(remover(cod, this.root) == null){
                 return false;
-            } else {
-                this.root = remover(cod, this.root);
-                this.quant--;
-                return true;
             }
+            return true;
         }
         
         private NoAbb remover(int cod, NoAbb node){
+            
+            // if root is empty
+            if(no == null){
+                return null;
+            }
+            
             if(cod < node.getItem().getCod()){
                 node.setLeft(remover(cod, node.getLeft()));
             } else if (cod > node.getItem().getCod()){
                 node.setRight(remover(cod, node.getRight()));
-            } else {
-                   
+
+                // if right is null, returns left
+            } else if (node.getRight() == null) {
+                return node.getLeft();
+
+                // if theres on right, asks for left
+                // if its null, returns
+            } else if (node.getLeft() == null){
+                return node.getRight();
             }
         }
 }
