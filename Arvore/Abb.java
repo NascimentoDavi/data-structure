@@ -114,33 +114,62 @@ public class Abb {
             }
         }
 
-        public booleam remover(int cod){
-            if(remover(cod, this.root) == null){
-                return false;
-            }
-            return true;
+        public NoAbb remover(int cod){
+            return remove(cod, this.root);
         }
         
-        private NoAbb remover(int cod, NoAbb node){
+        // private NoAbb remover(int cod, NoAbb node){
+
+        //     // if root is empty
+        //     if(no == null){
+        //         return null;
+        //     }
             
-            // if root is empty
-            if(no == null){
+        //     if(cod < node.getItem().getCod()){
+        //         node.setLeft(remover(cod, node.getLeft()));
+        //     } else if (cod > node.getItem().getCod()){
+        //         node.setRight(remover(cod, node.getRight()));
+
+        //         // if right is null, returns left
+        //     } else if (node.getRight() == null) {
+        //         return node.getLeft();
+
+        //         // if theres on right, asks for left
+        //         // if its null, returns
+        //     } else if (node.getLeft() == null){
+        //         return node.getRight();
+        //     }
+        // }
+
+        private NoAbb remove(int cod, NoAbb node){
+            if(node == null){
                 return null;
-            }
-            
-            if(cod < node.getItem().getCod()){
-                node.setLeft(remover(cod, node.getLeft()));
-            } else if (cod > node.getItem().getCod()){
-                node.setRight(remover(cod, node.getRight()));
-
-                // if right is null, returns left
-            } else if (node.getRight() == null) {
+            } else if (cod < node.getItem().getCod()) {
+                node.setLeft(remove(cod, node.getLeft()));
+            } else if (cod > node.getItem().getCod()) {
+                node.setRight(remove(cod, node.getRight()));
+            } else if (node.getRight == null) {
+                this.quant--;
                 return node.getLeft();
-
-                // if theres on right, asks for left
-                // if its null, returns
-            } else if (node.getLeft() == null){
+            } else if (node.getLeft() == null) {
+                this.quant--;
                 return node.getRight();
+            } else {
+                node.setLeft(biggerLeft(node, node.getLeft()));
+                this.quant--;
+            }
+            return node;
+        }
+
+        // if the element we want to remove has 2 children
+        private NoAbb biggerLeft(NoAbb node, NoAbb bigger){
+            // walks to the right the maximum
+            if (bigger.getRight() != null){
+                maior.setRight(biggerLeft(node, bigger.getRight()));
+                return bigger;
+            } else {
+                node.setItem(bigger.getItem());
+                return bigger.getLeft();
             }
         }
 }
