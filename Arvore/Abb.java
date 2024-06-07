@@ -22,59 +22,116 @@ public class Abb {
     }
 
     public boolean isEmpty(){
-        if(this.quant == 0){
+        if(this.root == null){
             return true;
         }
         return false;
     }
 
-    public NoAbb search(int num){
-        return search(num, this.root);
+    // public NoAbb search(int num){
+    //     return search(num, this.root); // to guarantee the first node will be the root
+    // }
+
+    // public NoAbb search(int num, NoAbb node){
+    //     // null root or element was not found
+    //     if(node == null){
+    //         return null;
+    //     }
+    //     if(num < node.getItem().getCod()) {
+    //         return search(num, node.getLeft());
+    //     } else if (num > node.getItem().getCode()){
+    //         return search(num, node.getRight());
+    //     } else {
+    //         // if finds, return it
+    //         return node;
+    //     }
+    // }
+
+    public NoAbb search(int cod){
+        return search(cod, this.root);
     }
 
-    public NoAbb search(int num, NoAbb node){
+    private NoAbb search(int cod, NoAbb node){
         if(node == null){
             return null;
-        }
-        if(num < node.getItem().getCod()) {
-            return pesquisa(num, node.getLeft());
-        } else if (num > node.getItem().getCode()){
-            return pesquisa(num, node.getRight());
         } else {
-            // if finds, return it
-            return node;
+            if(cod < node.getItem().getCod()){
+                return search(cod, node.getLeft());
+            } else if (cod > node.getItem().getCod()){
+                return search(cod, node.getRight());
+            } else {
+                return node;
+            }
         }
     }
 
-    public boolean insert(Item item){
-        NoAbb node = search(item.getCodigo());
-      
-        if(node == null){
-            this.root = insert(item, this.root);
-            return true;
+    // public boolean insert(int cod){
+    //     if(this.search(cod) != null){
+    //         return false;
+    //     } else {
+    //         this.root = insert(cod, this.root);
+    //         this.quant++;
+    //     }
+    // }
+    
+    // private NoAbb insert(int cod, NoAbb node){
+    //     // root is empty
+    //     if(node == null){
+    //         NoAbb newNode = new NoAbb(cod);
+    //         return newNode;
+    //     } else {
+    //         if(cod > node.getItem().getCod()){
+    //             node.setRight(insert(cod, node.getRight()));
+    //         } else {
+    //             node.setLeft(insert(cod, node.getLeft()));
+    //         }
+    //         return node;
+    //     }
+    // }
+
+        public boolean insert(int cod){
+            if(this.search(cod) != null) {
+                return false;
+            } else {
+                this.root = insert(cod, this.root);
+                this.quant++;
+                return true;
+            }
         }
-        return false;
-    }
 
-    private NoAbb insert(Item item, NoAbb node){
-        if(node == null){
-            NoAbb newNode = new NoAbb(item);
-            this.quant++;
-            return newNode;
+        private NoAbb insert(int cod, NoAbb node){
+            // if root is empty
+            if(node == null){
+                NoAbb newNode = new NoAbb(cod);
+                return newNode;
+            } else {
+                if(cod > node.getItem().getCod()){
+                    node.setRight(insert(cod, node.getRight()));
+                } else {
+                    node.setLeft(insert(cod, node.getLeft()));
+                }
+                return node;
+            }
         }
-        if(item.getCod() < node.getItem().getCod()){
-            node.setLeft(insert(item, node.getLeft()));
-        } else {
-            node.setRight(insert(item, node.getLeft()));
+
+        public booleam remover(int cod){
+            // the searched element does not exist
+            if(this.search(cod) == null){
+                return false;
+            } else {
+                this.root = remover(cod, this.root);
+                this.quant--;
+                return true;
+            }
         }
-        return node;
-    }
-
-    public NoAbb remove(int cod){
-        return remove(codigo, this.root;)
-    }
-
-    private NoAbb remove(int cod, NoAbb node){
-
-    }
+        
+        private NoAbb remover(int cod, NoAbb node){
+            if(cod < node.getItem().getCod()){
+                node.setLeft(remover(cod, node.getLeft()));
+            } else if (cod > node.getItem().getCod()){
+                node.setRight(remover(cod, node.getRight()));
+            } else {
+                   
+            }
+        }
 }
