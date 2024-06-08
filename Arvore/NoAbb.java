@@ -1,4 +1,5 @@
 package entidades;
+
 public class NoAbb {
     private Item item;
     private NoAbb right;
