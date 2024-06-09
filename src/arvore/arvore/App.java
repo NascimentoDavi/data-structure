@@ -16,6 +16,7 @@ public class App {
         vet = arv.CamPosOrdem();
         System.out.println("Caminhamento Pos-ordem: \n"+vet.toString());
         System.out.println("Maior valor inserido na árvore: "+arv.maiorValor());
+        System.out.println("Soma total: "+arv.somaTotal());
     }
 
     public static void insere(Abb arv){

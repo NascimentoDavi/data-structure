@@ -178,4 +178,27 @@ public class Abb {
             return maiorValor(aux, no.getDir());
         }
     }
+
+    public int somaTotal(){
+        LCItem vet = new LCItem(this.quant);
+        somaTotal(vet, this.raiz);
+        int total = 0;
+        for(int i = 0; i < this.quant; i++){
+            total += vet.getItem(i).getCod();
+        }
+        return total;
+    }
+
+    private void somaTotal(LCItem vet, NoAbb no){
+
+        // fazCamInOrdem(vetor, no.getEsq());
+        // vetor.insereFinal(no.getItem());
+        // fazCamInOrdem(vetor, no.getDir());
+        
+        if(no != null){
+            somaTotal(vet, no.getEsq());
+            vet.insereFinal(no.getItem());
+            somaTotal(vet, no.getDir());
+        }
+    }
 }
