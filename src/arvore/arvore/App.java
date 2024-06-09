@@ -10,11 +10,12 @@ public class App {
 
         insere(arv);
         vet = arv.CamInOrdem();
-        System.out.println(vet.toString());
+        System.out.println("Caminhamento In-ordem: \n"+vet.toString());
         vet = arv.CamPreOrdem();
-        System.out.println(vet.toString());
+        System.out.println("Caminhamento Pre-ordem: \n"+vet.toString());
         vet = arv.CamPosOrdem();
-        System.out.println(vet.toString());
+        System.out.println("Caminhamento Pos-ordem: \n"+vet.toString());
+        System.out.println("Maior valor inserido na árvore: "+arv.maiorValor());
     }
 
     public static void insere(Abb arv){

@@ -165,4 +165,17 @@ public class Abb {
 			balancear(vetor, arv, meio+1, dir);
 		}
 	}
+
+    public int maiorValor(){
+        return maiorValor(0, this.raiz);
+    }
+
+    private int maiorValor(int aux, NoAbb no){
+        if(no == null){
+            return aux;
+        } else {
+            aux = no.getItem().getCod();
+            return maiorValor(aux, no.getDir());
+        }
+    }
 }
