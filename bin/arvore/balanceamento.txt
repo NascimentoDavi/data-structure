@@ -1,0 +1,6 @@
+balanceamento de uma arvore binaria
+- uma arvore é considerada balenceada se, e somente se, para qualquer nó da árvore, a altura de suas sub-árvores diferem de no máximo uma unidade.
+
+Passos a serem seguidos para balanceamento de uma árvore binária
+- Fazer caminhamento Central(In-Ordem) -> retorna vetor ordenado.
+- 

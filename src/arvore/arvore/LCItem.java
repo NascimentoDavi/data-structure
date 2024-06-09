@@ -52,6 +52,7 @@ public class LCItem {
 				return i;
 			}
 		}
+		// if cod was not found
 		return -1;
 	}
 

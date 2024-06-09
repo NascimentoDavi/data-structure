@@ -134,7 +134,7 @@ public class Abb {
         }
     }
     
-       public LCItem CamPosOrdem() {
+    public LCItem CamPosOrdem() {
         LCItem vetor = new LCItem(this.quant);
         fazCamPosOrdem(vetor, this.raiz);
         return (vetor);
@@ -147,11 +147,12 @@ public class Abb {
             vetor.insereFinal(no.getItem());
         }
     }
-    	public Abb balancear() {
-		LCItem vetor = CamInOrdem();
-		Abb arvAux = new Abb();
-		balancear (vetor, arvAux, 0, vetor.getQuant()-1);
-		return arvAux;
+    
+    public Abb balancear() {
+        LCItem vetor = CamInOrdem();
+        Abb arvAux = new Abb();
+        balancear (vetor, arvAux, 0, vetor.getQuant()-1);
+        return arvAux;
 	}
 	
 	private void balancear (LCItem vetor, Abb arv, int esq, int dir) {
