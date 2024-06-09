@@ -147,9 +147,9 @@ public class Abb {
             vetor.insereFinal(no.getItem());
         }
     }
-    
+
     public Abb balancear() {
-        LCItem vetor = CamInOrdem();
+        LCItem vetor = CamInOrdem(); // retorna vetor ordenado
         Abb arvAux = new Abb();
         balancear (vetor, arvAux, 0, vetor.getQuant()-1);
         return arvAux;
