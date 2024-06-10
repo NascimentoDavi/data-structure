@@ -35,6 +35,12 @@ public class App {
         while(value != -1){
             System.out.print("value: ");
             value = scan.nextInt();
+
+            // -1 to stop inserting nodes
+            if(value == -1){
+                break;
+            }
+
             Item item = new Item(value);
             arv.insere(item);
         }
