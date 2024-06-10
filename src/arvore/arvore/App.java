@@ -3,6 +3,8 @@ package arvore;
 import java.util.Scanner;
 
 public class App {
+
+    static Scanner scan = new Scanner(System.in);
     public static void main(String args[]){
 
         Abb arv = new Abb();
@@ -17,19 +19,25 @@ public class App {
         System.out.println("Caminhamento Pos-ordem: \n"+vet.toString());
         System.out.println("Maior valor inserido na árvore: "+arv.maiorValor());
         System.out.println("Soma total: "+arv.somaTotal());
+
+        System.out.print("Digite o valor de um dos nós e mostraremos os elementos da sub-árvore à direita: ");
+        int valor = scan.nextInt();
+        System.out.println("Elementos da sub-árvore à direita:\n"+arv.mostrarDireita(valor));
+
     }
 
     public static void insere(Abb arv){
         Scanner scan = new Scanner(System.in);
+        int value = 0;
 
-        for(int i = 0; i < 12; i++){
+        System.out.println("**Type -1 to exit**");
+
+        while(value != -1){
             System.out.print("value: ");
-            int value = scan.nextInt();
+            value = scan.nextInt();
             Item item = new Item(value);
             arv.insere(item);
         }
-
-        scan.close();
     }
 
 }

@@ -201,4 +201,43 @@ public class Abb {
             somaTotal(vet, no.getDir());
         }
     }
+
+    // public LCItem mostrarDireita(int cod){
+    //     LCItem lista = new LCItem(this.quant);
+    //     NoAbb noAux = pesquisa(cod);
+    //     if(noAux == null || noAux.getDir() == null){
+    //         return null;
+    //     } else {
+    //         mostrarDireita(lista ,noAux.getDir());
+    //     }
+    //     return lista;
+    // }
+
+    // private void mostrarDireita(LCItem lista, NoAbb no){
+    //     if(no != null){
+    //         lista.insereFinal(no.getItem());
+    //         mostrarDireita(lista, no.getDir());
+    //         mostrarDireita(lista, no.getEsq());
+    //     }
+    // }
+
+
+    public LCItem mostrarDireita(int cod){
+        NoAbb aux = pesquisa(cod);
+        if(aux == null || aux.getDir() == null){
+            return null;
+        } else {
+            LCItem vet = new LCItem(this.quant);
+            mostrarDireita(vet, aux.getDir());
+            return (vet);
+        }
+    }
+
+    private void mostrarDireita(LCItem vet, NoAbb no){
+        if(no != null){
+            mostrarDireita(vet, no.getDir());
+            vet.insereFinal(no.getItem());
+            mostrarDireita(vet, no.getEsq());
+        }
+    }
 }
